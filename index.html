@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Andile Shabalala</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html, body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Roboto", sans-serif;
+        }
+
+        .weather-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+			backdrop-filter: blur(0px)
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .weather-icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        .weather-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .weather-info p {
+            margin: 5px 0;
+            font-size: 12px;
+        }
+
+        .w3-content {
+            margin-top: 20px; /* Adjusted margin to accommodate weather data */
+        }
+		 @media screen and (max-width: 600px) {
+        /* Adjust styles for small screens */
+
+        .w3-third,
+        .w3-twothird {
+            width: 100%;
+            padding: 0;
+        }
+
+        .weather-container {
+            position: static;
+            background: transparent;
+            padding: 10px;
+            border-radius: 0;
+            box-shadow: blur(50px);
+            margin-top: 20px; /* Adjusted margin to accommodate weather data */
+        }
+
+        .w3-content {
+            margin-top: 20px; /* Adjusted margin to accommodate weather data */
+        }
+    }
+    </style>
+</head>
+<body class="w3-light-grey">
+
+<div class="w3-content" style="max-width:1400px;">
+
+    <div class="w3-row-padding">
+
+        <div class="w3-third">
+
+            <div class="w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+                    <img src="C:\Users\ADMIN\Desktop\MyPortfolio\IMG_20210430_145702.jpg" style="width:100%" alt="Andile Picture ">
+                    <div class="w3-display-bottomleft w3-container w3-text-black">
+                        <h2>Andile Shabalala</h2>
+                    </div>
+                </div>
+                <div class="w3-container">
+                     <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Designer & Developer</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Randburg, Gauteng</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>zuluandile91@gmail.com</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>0734405733</p>
+          <hr>
+
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+          <p>Web Design</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
+          </div>
+          <p>Front End Developer</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+              <div class="w3-center w3-text-white">80%</div>
+            </div>
+          </div>
+          <p>Mentor</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
+          </div>
+          <p>Media</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
+          </div>
+          <br>
+
+          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+          <p>English</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+          </div>
+          <p>IsiZulu</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div>
+          </div>
+          <p>Afrikaans</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
+          </div>
+          <br>
+                </div>
+            </div><br>
+        </div>
+
+        <div class="w3-twothird">
+
+            <!-- Weather Container -->
+            <div class="weather-container">
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-sun-o fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Weather Information</h2>
+                <div class="weather-info">
+                    <div>
+                        <img class="weather-icon" src="C:\Users\ADMIN\Desktop\MyPortfolio\Weather Image.png" alt="Weather Icon">
+                    </div>
+                    <div>
+					     <p id="location">Location: --</p>
+                        <p>Temperature: <span id="temperature">--</span> °C</p>
+                        <p>Condition: <span id="condition">--</span></p>
+                    </div>
+                </div>
+                <div id="weather-error" class="weather-error"></div>
+            </div>
+            <!-- End Weather Container -->
+
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+                <div class="w3-container">
+                    <h5 class="w3-opacity"><b>Front End Developer / Dynamic DNA</b></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>March 2020 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+                    <p>I like to code things from scratch, and enjoy bringing ideas to life in the browser.</p>
+                    <hr>
+                </div>
+
+                <div class="w3-container">
+                    <h5 class="w3-opacity"><b>Web Designer / designsomething.com</b></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2019 - Mar 2020</h6>
+                    <p>I value simple content structure, clean design patterns, and thoughtful interactions. </p><br>
+                </div>
+            </div>
+
+            <div class="w3-container w3-card w3-white">
+                    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>W3Schools.com</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Forever</h6>
+          <p>Web Development! All I need to know in one place</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>WeThinkCode</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2020 - 2021</h6>
+          <p>Computer Architecture-NQF Level 4 </p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>University Of KwaZulu-Natal </b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2016 - 2019</h6>
+          <p>Bachelor Degree</p><br>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+    <p>Find me on social media.</p>
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+
+</footer>
+
+<script>
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            const apiKey = "53dc33560bde41179c370502230611";
+            const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${latitude},${longitude}`;
+
+            
+fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+        // Process and display the weather data.
+        console.log("Weather Data:", data);
+
+        // Update your webpage with the weather data here.
+        document.getElementById('temperature').innerText = data.current.temp_c;
+        document.getElementById('condition').innerText = data.current.condition.text;
+
+        // Add the following line to update the location name
+        document.getElementById('location').innerText = "Location: " + data.location.name;
+    })
+    .catch(error => {
+        console.error("Error fetching weather data:", error);
+        document.getElementById('weather-error').innerText = "Error fetching weather data.";
+    });
+        });
+    } else {
+        console.log("Geolocation is not available in this browser.");
+    }
+</script>
+
+</body>
+</html>
