@@ -12,17 +12,16 @@
             font-family: "Roboto", sans-serif;
         }
 
-        .weather-container {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background: transparent;
-			backdrop-filter: blur(0px)
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 1;
-        }
+.weather-container {
+    position: absolute; /* Change from fixed to absolute */
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    backdrop-filter: blur(0px); /* Add a semicolon here */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
 
         .weather-icon {
             width: 50px;
